@@ -6,7 +6,6 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE)
-    # TODO: ManyToMany vs. OneToMany for Profiles:Friends
     friends = models.ManyToManyField(User, related_name="friends", blank=True)
     birthday = models.DateField(null=True, blank=True)
     phone = models.CharField(max_length=32, null=True, blank=True)
